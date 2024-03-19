@@ -13,6 +13,11 @@
           <p class="card-text">{{$project->description}}</p>
           <div class="d-flex justify-content-between">
               <a href="{{route('admin.projects.index')}}" class="btn btn-secondary"><i class="fa-solid fa-backward me-2"></i>Torna Indietro</a>
+              <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger">Elimina</button>
+            </form>
           </div>
         </div>
       </div>

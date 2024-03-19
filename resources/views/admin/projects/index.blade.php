@@ -21,10 +21,14 @@
               <td>
                 <a href="{{$project->link_project}}">{{$project->link_project}}</a>
             </td>
-              <td>
+              <td class="d-flex gap-1">
                 <a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a>                
                 <a href="#" class="btn btn-warning"><i class="fa-solid fa-pen"></i></a>  
-                <a href="#" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>                
+                <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                </form>            
             </td>
             </tr>
             @empty
