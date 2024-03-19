@@ -25,7 +25,6 @@ class ProjectFactory extends Factory
             'description' => fake()->paragraphs(10, true),
             'link_project' => fake()->domainName(),
             'date' => fake()->date(),
-
         ];
     }
 }
