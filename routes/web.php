@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Guest\HomeController as GuestHomeController;
+use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,14 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.home');
-})->name('guest.home');
+// Guest
+Route::get('/', GuestHomeController::class )->name('guest.home');
 
-Route::get('/admin', function () {
-    return view('admin.home');
-})->middleware(['auth', 'verified'])->name('admin.home');
+// Admin
+Route::prefix('/admin')->name('admin.')->middleware(['auth', 'verified'])->group(function(){
+    Route::get('', AdminHomeController::class)->name('home');
+    Route::resource('project', ProjectController::class);
+});
 
+// Auth
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
