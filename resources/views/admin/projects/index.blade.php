@@ -2,6 +2,12 @@
 
 @section('content')
 <section class="container mt-5">
+    @session('message')
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{$value}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endsession
     <table class="table">
         <thead>
           <tr>
@@ -32,7 +38,9 @@
             </td>
             </tr>
             @empty
-                {{-- Inserire --}}
+            <td colspan="5" class="text-center">
+                <h2>Non ci sono progetti</h2>
+            </td>
             @endforelse
         </tbody>
       </table>

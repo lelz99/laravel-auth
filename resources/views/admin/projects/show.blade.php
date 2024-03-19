@@ -12,7 +12,7 @@
           <h5 class="card-subtitle mb-2 text-body-secondary">{{$project->date}}</h5>
           <p class="card-text">{{$project->description}}</p>
           <div class="d-flex justify-content-between">
-              <a href="{{route('admin.projects.index')}}" class="btn btn-secondary"><i class="fa-solid fa-backward me-2"></i>Torna Indietro</a>
+              <a href="{{route('admin.projects.index')}}" class="btn btn-secondary">Torna Indietro</a>
               <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
                 @csrf
                 @method('DELETE')
