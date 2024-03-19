@@ -23,7 +23,7 @@ Route::get('/', GuestHomeController::class )->name('guest.home');
 // Admin
 Route::prefix('/admin')->name('admin.')->middleware(['auth', 'verified'])->group(function(){
     Route::get('', AdminHomeController::class)->name('home');
-    Route::resource('project', ProjectController::class);
+    Route::resource('projects', ProjectController::class);
 });
 
 // Auth
