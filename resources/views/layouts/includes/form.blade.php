@@ -15,7 +15,7 @@
             <label for="slug" class="form-label">Slug</label>
             <input type="text" class="form-control" id="slug" value="{{ old('slug', $project->slug)}}" disabled>
         </div>
-        <div class="col-2 mb-3">
+        <div class="col-3 mb-3">
             <label for="end_date" class="form-label">Data fine progetto</label>
             <input type="date" class="form-control" id="end_date" name="end_date" value="{{ old('end_date', $project->end_date)}}">
         </div>
@@ -23,12 +23,12 @@
             <label for="preview_project" class="form-label">Anteprima Progetto</label>
             <input type="url" class="form-control" id="preview_project" name="preview_project" value="{{ old('preview_project', $project->preview_project)}}">
         </div>
-        <div class="col-2">
-            {{-- Gestire preview --}}
+        <div class="col-1 align-self-center">
+            <img class="img-fluid" id="preview" src="{{old('preview_project', $project->preview_project ?? 'https://marcolanci.it/boolean/assets/placeholder.png' )}}" alt="">
         </div>
         <div class="mb-3 col-12">
             <label for="description" class="form-label">Descrizione</label>
-            <textarea class="form-control" id="description" rows="10" name="description">{{ old('description', $project->description)}}"</textarea>
+            <textarea class="form-control" id="description" rows="10" name="description">{{ old('description', $project->description)}}</textarea>
         </div>
         <div class="col d-flex justify-content-between">
             <a class="btn btn-primary" href="{{route('admin.projects.index')}}">Torna Indietro</a>
