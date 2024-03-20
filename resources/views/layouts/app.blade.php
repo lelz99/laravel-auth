@@ -25,9 +25,14 @@
 <body>
     <div id="app">
 
-        @include('layouts.includes.header')
+        <header>
+            @include('layouts.includes.navbar')
+        </header>
 
-        <main class="">
+        <main>
+            <section id="alerts" class="container my-5">
+                @include('layouts.includes.alerts')
+            </section>
             @yield('content')
         </main>
     </div>

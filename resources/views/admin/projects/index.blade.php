@@ -2,12 +2,6 @@
 
 @section('content')
 <section class="container mt-5">
-    @session('message')
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{$value}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      @endsession
     <table class="table">
         <thead>
           <tr>
@@ -28,13 +22,15 @@
                 <a href="{{$project->link_project}}">{{$project->link_project}}</a>
             </td>
               <td class="d-flex gap-1">
-                <a href="{{route('admin.projects.show', $project)}}" class="btn btn-primary"><i class="fa-regular fa-eye"></i></a>                
-                <a href="#" class="btn btn-warning"><i class="fa-solid fa-pen"></i></a>  
-                <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
+                <div class="d-flex gap-1">
+                  <a href="{{route('admin.projects.show', $project)}}" class="btn btn-sm btn-primary"><i class="fa-regular fa-eye"></i></a>                
+                  <a href="#" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen"></i></a>  
+                  <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                </form>            
+                    <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
+                  </form>            
+                </div>
             </td>
             </tr>
             @empty
