@@ -23,8 +23,9 @@ class ProjectFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'description' => fake()->paragraphs(10, true),
-            'link_project' => fake()->domainName(),
-            'date' => fake()->date(),
+            'preview_project' => fake()->imageUrl(360, 250, 'animals', true),
+            'end_date' => fake()->date(),
+            'is_published' => fake()->boolean()
         ];
     }
 }

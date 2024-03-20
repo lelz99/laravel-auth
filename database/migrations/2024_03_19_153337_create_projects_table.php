@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title', 50)->unique();
             $table->string('slug')->unique();
-            $table->text('description')->nullable();
-            $table->string('link_project')->nullable();
-            $table->date('date')->nullable();
+            $table->text('description');
+            $table->string('preview_project')->nullable();
+            $table->date('end_date')->nullable();
+            $table->boolean('is_published')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
