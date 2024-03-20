@@ -15,7 +15,6 @@
                 <div class="card-body">
                     <p class="card-text">{{$project->description}}</p>
                     <p class="card-text mb-0"><strong>Data fine Progetto:</strong> {{$project->end_date}}</p>
-                    <p class="card-text"><strong>Pubblicato:</strong> {{$project->is_published ? 'Si' : 'No'}}</p>
                 </div>
             </div>
         </div>

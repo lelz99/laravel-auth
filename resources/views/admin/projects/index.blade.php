@@ -9,7 +9,9 @@
             <th scope="col">Titolo</th>
             <th scope="col">Data</th>
             <th scope="col">Link</th>
-            <th scope="col"></th>
+            <th scope="col">
+              <a class="btn btn-sm btn-success fw-bold" href="{{route('admin.projects.create')}}">Nuovo Progetto</a>
+            </th>
           </tr>
         </thead>
         <tbody>
