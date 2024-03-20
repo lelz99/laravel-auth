@@ -29,14 +29,15 @@
                   <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-delete" class="btn btn-danger" id="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                    @include('layouts.includes.confirm_delete')
                   </form>            
                 </div>
             </td>
             </tr>
             @empty
             <td colspan="5" class="text-center">
-                <h2>Non ci sono progetti</h2>
+              <h2>Non ci sono progetti</h2>
             </td>
             @endforelse
         </tbody>

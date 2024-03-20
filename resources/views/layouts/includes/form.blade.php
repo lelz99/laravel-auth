@@ -35,8 +35,8 @@
             <div class="d-flex align-items-center gap-2">
                 {{-- gestire check --}}
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">Pubblica</label>
+                    <input class="form-check-input" type="checkbox" id="is_published" name="is_published" @if(old('is_published', '')) @endif>
+                    <label class="form-check-label" for="is_published">Pubblico</label>
                 </div>
                 <button class="btn btn-secondary" type="reset">Svuota</button>
                 <button class="btn btn-success" type="submit">Salva</button>
