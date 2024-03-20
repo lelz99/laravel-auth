@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="container">
   <h1 class="my-5">Project</h1>
   <div class="card mb-3">
     <div class="row g-0">
@@ -28,5 +27,4 @@
       </div>
     </div>
   </div>
-</section>
 @endsection

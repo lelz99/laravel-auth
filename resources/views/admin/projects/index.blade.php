@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="container mt-5">
     <table class="table">
         <thead>
           <tr>
@@ -26,7 +25,7 @@
               <td class="d-flex gap-1">
                 <div class="d-flex gap-1">
                   <a href="{{route('admin.projects.show', $project)}}" class="btn btn-sm btn-primary"><i class="fa-regular fa-eye"></i></a>                
-                  <a href="#" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen"></i></a>  
+                  <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen"></i></a>  
                   <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
                     @csrf
                     @method('DELETE')
@@ -42,5 +41,4 @@
             @endforelse
         </tbody>
       </table>
-</section>
 @endsection

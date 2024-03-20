@@ -33,8 +33,12 @@
             <section id="alerts" class="container my-5">
                 @include('layouts.includes.alerts')
             </section>
-            @yield('content')
+            <section id="main-content" class="container mt-5">
+                @yield('content')
+            </section>
         </main>
+
+        @yield('scripts')
     </div>
 </body>
 
