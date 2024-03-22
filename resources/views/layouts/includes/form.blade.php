@@ -1,8 +1,8 @@
 @if($project->exists)
-    <form action="{{route('admin.projects.update', $project)}}" method="POST">
+    <form action="{{route('admin.projects.update', $project)}}" method="POST" enctype="multipart/form-data">
     @method('PUT')
 @else
-    <form action="{{route('admin.projects.store')}}" method="POST">
+    <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
 @endif
     @csrf
     <div class="row">    
@@ -21,10 +21,12 @@
         </div>
         <div class="col-8 mb-3">
             <label for="preview_project" class="form-label">Anteprima Progetto</label>
-            <input type="url" class="form-control" id="preview_project" name="preview_project" value="{{ old('preview_project', $project->preview_project)}}">
+            <input type="file" class="form-control" id="preview_project" name="preview_project" value="{{ old('preview_project', $project->preview_project)}}">
         </div>
         <div class="col-1 align-self-center">
-            <img class="img-fluid" id="preview" src="{{old('preview_project', $project->preview_project ?? 'https://marcolanci.it/boolean/assets/placeholder.png' )}}" alt="">
+            <img class="img-fluid" id="preview" src="{{old('preview_project', $project->preview_project)
+             ? asset('storage/' . old('preview_project', $project->preview_project))
+             : 'https://marcolanci.it/boolean/assets/placeholder.png' }}" alt="">
         </div>
         <div class="mb-3 col-12">
             <label for="description" class="form-label">Descrizione</label>
@@ -33,7 +35,6 @@
         <div class="col d-flex justify-content-between">
             <a class="btn btn-primary" href="{{route('admin.projects.index')}}">Torna Indietro</a>
             <div class="d-flex align-items-center gap-2">
-                {{-- gestire check --}}
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="is_published" name="is_published" @if(old('is_published', '')) @endif>
                     <label class="form-check-label" for="is_published">Pubblico</label>

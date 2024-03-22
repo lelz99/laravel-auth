@@ -38,8 +38,8 @@
             </section>
         </main>
 
-        @yield('scripts')
     </div>
+    @yield('scripts')
 </body>
 
 </html>

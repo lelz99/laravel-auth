@@ -8,7 +8,7 @@
         <h2 class="card-title">{{$project->title}}</h2>
       </div>
       <div class="col-md-4">
-        <img src="{{$project->preview_project}}" class="img-fluid h-100 w-100" alt="{{$project->title}}">
+        <img src="{{asset('storage/' . $project->preview_project)}}" class="img-fluid h-100 w-100" alt="{{$project->title}}">
       </div>
       <div class="col-md-8 d-flex flex-column">
         <div class="card-body">
@@ -22,11 +22,10 @@
           <a href="{{route('admin.projects.index')}}" class="btn btn-secondary">Torna Indietro</a>
           <div class="d-flex gap-2">
             <a class="btn btn-warning" href="{{route('admin.projects.edit', $project)}}">Modifica</a>
-            <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
+            <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="prova">
               @csrf
               @method('DELETE')
-              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-delete" class="btn btn-danger">Elimina</button>
-              @include('layouts.includes.confirm_delete')
+              <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-delete" class="btn btn-danger">Elimina</button>
             </form>
           </div>
         </div>

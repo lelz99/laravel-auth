@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <table class="table">
+    <table class="table prova">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-            @forelse ($projects as $project)                
+            @forelse ($projects as $project)
             <tr>
               <th scope="row">{{$project->id}}</th>
               <td>{{$project->title}}</td>
@@ -29,8 +29,7 @@
                   <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-delete" class="btn btn-danger" id="btn-delete"><i class="fa-solid fa-trash"></i></button>
-                    @include('layouts.includes.confirm_delete')
+                    <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-delete" class="btn btn-danger" id="btn-delete"><i class="fa-solid fa-trash"></i></button>
                   </form>            
                 </div>
             </td>

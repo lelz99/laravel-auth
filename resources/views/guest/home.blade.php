@@ -9,7 +9,7 @@
                 <h2 class="card-title">{{$project->title}}</h2>
             </div>
             <div class="col-md-4">
-                <img src="{{$project->preview_project}}" class="img-fluid w-100 h-100" alt="{{$project->title}}">
+                <img src="{{asset('storage/' . $project->preview_project)}}" class="img-fluid w-100 h-100" alt="{{$project->title}}">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
