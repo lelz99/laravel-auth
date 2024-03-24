@@ -13,10 +13,16 @@
       <div class="col-md-8 d-flex flex-column">
         <div class="card-body">
           <p class="card-text">{{$project->description}}</p>
-          <p class="card-text mb-0"><strong>Data fine Progetto:</strong> {{$project->end_date}}</p>
-          <p class="card-text"><strong>Pubblicato:</strong>
-            {{$project->is_published ? 'Si' : 'No'}}
-          </p>
+          <ul>
+            <li><strong>Data fine Progetto:</strong> {{$project->end_date}}</li>
+            <li><strong>Data Creazione:</strong> {{$project->created_at}}</li>
+            <li><strong>Ultima Modifica:</strong> {{$project->updated_at}}</li>
+          </ul>
+          <div class="card-text"><strong>Pubblicato:</strong>
+            @if($project->is_published) <i class="fa-solid fa-circle-check text-success"></i>
+            @else <i class="fa-solid fa-circle-xmark text-danger"></i> 
+            @endif
+          </div>
         </div>
         <div class="d-flex justify-content-between p-3">
           <a href="{{route('admin.projects.index')}}" class="btn btn-secondary">Torna Indietro</a>

@@ -87,7 +87,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return to_route('admin.projects.show', $project);
+        return to_route('admin.projects.show', $project)->with('message', "{$project->title} modificato con successo");
     }
 
     /**

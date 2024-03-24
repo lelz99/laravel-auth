@@ -36,7 +36,7 @@
             <a class="btn btn-primary" href="{{route('admin.projects.index')}}">Torna Indietro</a>
             <div class="d-flex align-items-center gap-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="is_published" name="is_published" @if(old('is_published', '')) @endif>
+                    <input class="form-check-input" type="checkbox" id="is_published" name="is_published">
                     <label class="form-check-label" for="is_published">Pubblico</label>
                 </div>
                 <button class="btn btn-secondary" type="reset">Svuota</button>
