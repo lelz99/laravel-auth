@@ -23,10 +23,9 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|string|min:3|max:50|unique:projects',
-            'description' => 'required|string|min:5|max:10000',
+            'description' => 'required|string|min:5|max:10000|',
             'preview_project' => 'nullable|mimes:jpeg,jpg,png',
             'end_date' => 'nullable|date',
-            'is_published' => 'nullable'
         ];
     }
 

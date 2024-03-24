@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('preview_project')->nullable();
             $table->date('end_date')->nullable();
-            $table->boolean('is_published')->nullable();
+            $table->boolean('is_published');
             $table->timestamps();
             $table->softDeletes();
         });

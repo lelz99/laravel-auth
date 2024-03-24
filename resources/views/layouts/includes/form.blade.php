@@ -5,10 +5,17 @@
     <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
 @endif
     @csrf
-    <div class="row">
+    <div class="row mb-5">
         <div class="col-6 mb-3">
             <label for="title" class="form-label">Titolo</label>
-            <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $project->title)}}">
+            <input type="text" class="form-control @error('title') is-invalid @elseif (old('title', '')) is-valid @enderror" id="title" name="title" value="{{ old('title', $project->title)}}">
+            <div>
+                @error('title')
+                <p class="text-danger">{{$message}}</p>
+                @else
+                <p class="text-secondary">Inserire un titolo valido</p>
+                @enderror
+            </div>
         </div>
         <div class=" col-6 mb-3">
             {{-- Da gestire --}}
@@ -16,12 +23,26 @@
             <input type="text" class="form-control" id="slug" value="{{ old('slug', $project->slug)}}" disabled>
         </div>
         <div class="col-3 mb-3">
-            <label for="end_date" class="form-label">Data fine progetto</label>
+            <label for="end_date" class="form-label @error('title') is-invalid @elseif (old('end_date', '')) is-valid @enderror">Data fine progetto</label>
             <input type="date" class="form-control" id="end_date" name="end_date" value="{{ old('end_date', $project->end_date)}}">
+            <div>
+                @error('end_date')
+                <p class="text-danger">{{$message}}</p>
+                @else
+                <p class="text-secondary">Inserire una data valida</p>
+                @enderror
+            </div>
         </div>
         <div class="col-8 mb-3">
-            <label for="preview_project" class="form-label">Anteprima Progetto</label>
+            <label for="preview_project" class="form-label @error('preview_project') is-invalid @elseif (old('preview_project', '')) @enderror">Anteprima Progetto</label>
             <input type="file" class="form-control" id="preview_project" name="preview_project" value="{{ old('preview_project', $project->preview_project)}}">
+            <div>
+                @error('preview_project')
+                <p class="text-danger">{{$message}}</p>
+                @else
+                <p class="text-secondary">Inserire un file .png .jpg .jpeg</p>
+                @enderror
+            </div>
         </div>
         <div class="col-1 align-self-center">
             <img class="img-fluid" id="preview" src="{{old('preview_project', $project->preview_project)
@@ -30,7 +51,14 @@
         </div>
         <div class="mb-3 col-12">
             <label for="description" class="form-label">Descrizione</label>
-            <textarea class="form-control" id="description" rows="10" name="description">{{ old('description', $project->description)}}</textarea>
+            <textarea class="form-control @error('description') is-invalid @elseif (old('description', '')) @enderror" id="description" rows="10" name="description">{{ old('description', $project->description)}}</textarea>
+            <div>
+                @error('description')
+                <p class="text-danger">{{$message}}</p>
+                @else
+                <p class="text-secondary">Inserire una descrizione valida</p>
+                @enderror
+            </div>
         </div>
         <div class="col d-flex justify-content-between">
             <a class="btn btn-primary" href="{{route('admin.projects.index')}}">Torna Indietro</a>
