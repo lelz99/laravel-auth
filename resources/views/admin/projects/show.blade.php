@@ -13,7 +13,7 @@
       <div class="col-md-8 d-flex flex-column">
         <div class="card-body">
           <p class="card-text">{{$project->description}}</p>
-          <ul>
+          <ul class="list-unstyled ps-0">
             <li><strong>Data fine Progetto:</strong> {{$project->end_date}}</li>
             <li><strong>Data Creazione:</strong> {{$project->created_at}}</li>
             <li><strong>Ultima Modifica:</strong> {{$project->updated_at}}</li>

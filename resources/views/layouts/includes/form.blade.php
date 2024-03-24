@@ -5,7 +5,7 @@
     <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
 @endif
     @csrf
-    <div class="row">    
+    <div class="row">
         <div class="col-6 mb-3">
             <label for="title" class="form-label">Titolo</label>
             <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $project->title)}}">
@@ -26,7 +26,7 @@
         <div class="col-1 align-self-center">
             <img class="img-fluid" id="preview" src="{{old('preview_project', $project->preview_project)
              ? asset('storage/' . old('preview_project', $project->preview_project))
-             : 'https://marcolanci.it/boolean/assets/placeholder.png' }}" alt="">
+             : 'https://marcolanci.it/boolean/assets/placeholder.png' }}" alt="preview">
         </div>
         <div class="mb-3 col-12">
             <label for="description" class="form-label">Descrizione</label>
@@ -36,7 +36,7 @@
             <a class="btn btn-primary" href="{{route('admin.projects.index')}}">Torna Indietro</a>
             <div class="d-flex align-items-center gap-2">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="is_published" name="is_published">
+                    <input class="form-check-input" type="checkbox" id="is_published" name="is_published" @if(old('is_published', $project->is_published)) checked @endif>
                     <label class="form-check-label" for="is_published">Pubblico</label>
                 </div>
                 <button class="btn btn-secondary" type="reset">Svuota</button>
