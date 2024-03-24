@@ -31,11 +31,12 @@
       <td>
         <div class="d-flex gap-1">
           <a href="{{route('admin.projects.show', $project)}}" class="btn btn-sm btn-primary"><i class="fa-regular fa-eye"></i></a>                
-          <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen"></i></a>  
-          <form action="{{route('admin.projects.destroy', $project)}}" method="POST">
+          <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen"></i></a>
+          {{-- da rivedere --}} 
+          <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="delete-form">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-delete" class="btn btn-danger" id="btn-delete"><i class="fa-solid fa-trash"></i></button>
+            <button type="submit" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></button>
           </form>            
         </div>
       </td>

@@ -28,10 +28,11 @@
           <a href="{{route('admin.projects.index')}}" class="btn btn-secondary">Torna Indietro</a>
           <div class="d-flex gap-2">
             <a class="btn btn-warning" href="{{route('admin.projects.edit', $project)}}">Modifica</a>
-            <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="prova">
+            {{-- da rivedere --}}
+            <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="delete-form">
               @csrf
               @method('DELETE')
-              <button type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-delete" class="btn btn-danger">Elimina</button>
+              <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Elimina</button>
             </form>
           </div>
         </div>

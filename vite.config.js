@@ -13,6 +13,7 @@ export default defineConfig({
                     'resources/scss/app.scss',
                     'resources/js/app.js',
                     'resources/js/form_img_preview.js',
+                    'resources/js/delete_confirmation.js',
                 ],
             refresh: true,
         }),

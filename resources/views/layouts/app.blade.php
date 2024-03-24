@@ -38,6 +38,7 @@
             </section>
         </main>
 
+        @include('layouts.includes.modal')
     </div>
     @yield('scripts')
 </body>
