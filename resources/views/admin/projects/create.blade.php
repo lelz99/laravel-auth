@@ -5,5 +5,5 @@
 @endsection
 
 @section('scripts')
-@vite('resources/js/form_img_preview.js')
+@vite('resources/js/form_previews.js')
 @endsection
